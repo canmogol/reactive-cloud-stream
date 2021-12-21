@@ -1,0 +1,18 @@
+logging:
+  level:
+    org:
+      springframework:
+        amqp: debug
+
+spring:
+  rabbitmq:
+    addresses: centos:5672
+
+  cloud:
+    stream:
+      function:
+        definition: messagesConsumer
+
+      bindings:
+        messagesConsumer-in-0:
+          destination: messages

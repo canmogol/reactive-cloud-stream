@@ -1,0 +1,23 @@
+server:
+  port: 8020
+
+logging:
+  level:
+    org:
+      springframework:
+        amqp: debug
+
+spring:
+  rabbitmq:
+    addresses: centos:5672
+
+  cloud:
+    stream:
+      function:
+        definition: messagesProcessor
+
+      bindings:
+        messagesProcessor-in-0:
+          destination: alerts
+        messagesProcessor-out-0:
+          destination: integrations
